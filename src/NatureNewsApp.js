@@ -50,23 +50,29 @@ export default function NatureNewsApp() {
         }}
       />
 
-      {filteredArticles.map((article, index) => (
-        <div key={index} className="article-card">
-          <h2 className="article-title">{article.title}</h2>
-          <p className="article-summary">{article.summary}</p>
-          <p className="article-meta">
-            Topic: {article.topic} | Region: {article.region}
-          </p>
-          <a
-            href={article.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="article-link"
-          >
-            Read Full Article
-          </a>
-        </div>
-      ))}
+     {filteredArticles.map((article, index) => (
+  <div key={index} className="article-card">
+    <img
+      src="https://source.unsplash.com/800x400/?nature,forest"
+      alt="Nature"
+      className="article-image"
+    />
+    <h2 className="article-title">{article.title}</h2>
+
+    <div className="article-tags">
+      <span className="tag">{article.topic}</span>
+      <span className="tag">{article.region}</span>
     </div>
-  );
-}
+
+    <p className="article-summary">{article.summary}</p>
+
+    <a
+      href={article.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="article-link"
+    >
+      Read Full Article
+    </a>
+  </div>
+))}
