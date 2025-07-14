@@ -1,56 +1,82 @@
 /* Base styles */
 body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f5f7f4;
   margin: 0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f6f9f7;
-  color: #333;
+  padding: 0;
+  color: #2d2d2d;
 }
 
-/* Main app container */
+/* App wrapper */
 .App {
   text-align: center;
-  padding: 40px 20px;
 }
 
-/* Header section */
+/* Header */
 .app-header {
-  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Logo image */
 .app-logo {
-  height: 80px;
-  margin-bottom: 10px;
+  height: 60px;
+  margin-bottom: 1rem;
 }
 
-/* Title */
 h1 {
   font-size: 2.5rem;
-  margin: 10px 0;
-  color: #2f4f4f; /* dark slate */
+  margin: 0;
+  color: #3a5a40;
 }
 
-/* Tagline under the title */
 .tagline {
   font-size: 1.2rem;
-  color: #5f7d7b;
-  margin: 0;
+  color: #6b705c;
+  margin-top: 0.5rem;
 }
 
-/* Main content block */
+/* Main */
 .app-main {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-/* Responsive text styling */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
+/* News card */
+.article-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
 
-  .tagline {
-    font-size: 1rem;
-  }
+.article-card:hover {
+  transform: translateY(-2px);
+}
+
+.article-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2f3e46;
+  margin-bottom: 0.5rem;
+}
+
+.article-summary {
+  font-size: 1rem;
+  color: #4d4d4d;
+}
+
+.article-link {
+  margin-top: 0.75rem;
+  display: inline-block;
+  color: #588157;
+  font-weight: bold;
+  text-decoration: none;
+}
+.article-link:hover {
+  text-decoration: underline;
 }
