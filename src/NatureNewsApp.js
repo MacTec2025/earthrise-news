@@ -35,26 +35,33 @@ export default function NatureNewsApp() {
   );
 
   return (
-    <div className="max-w-3xl mx-auto p-4 space-y-4">
-      <h1 className="text-2xl font-bold">EarthRise - Nature News</h1>
+    <div className="app-main">
       <input
         placeholder="Search by topic, region or keyword..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border border-gray-300 rounded px-4 py-2 w-full"
+        style={{
+          width: '100%',
+          padding: '12px 16px',
+          borderRadius: '8px',
+          border: '1px solid #ccc',
+          marginBottom: '2rem',
+          fontSize: '1rem'
+        }}
       />
+
       {filteredArticles.map((article, index) => (
-        <div key={index} className="border p-4 rounded shadow-sm mt-4">
-          <h2 className="text-lg font-semibold">{article.title}</h2>
-          <p className="text-sm text-gray-700">{article.summary}</p>
-          <p className="text-xs italic text-gray-600">
+        <div key={index} className="article-card">
+          <h2 className="article-title">{article.title}</h2>
+          <p className="article-summary">{article.summary}</p>
+          <p className="article-meta">
             Topic: {article.topic} | Region: {article.region}
           </p>
           <a
             href={article.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 underline text-sm"
+            className="article-link"
           >
             Read Full Article
           </a>
