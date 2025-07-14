@@ -50,7 +50,7 @@ export default function NatureNewsApp() {
         }}
       />
 
-     {filteredArticles.map((article, index) => (
+   {filteredArticles.map((article, index) => (
   <div key={index} className="article-card">
     <img
       src="https://source.unsplash.com/800x400/?nature,forest"
