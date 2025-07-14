@@ -1,78 +1,106 @@
-import { useState } from "react";
+import React, { useState } from 'react';
 
-const mockArticles = [
+const articles = [
   {
-    title: "Amazon Rainforest Faces New Threats from Illegal Mining",
-    summary: "Illegal gold mining in the Amazon continues to devastate ecosystems and harm indigenous communities.",
-    topic: "Forests",
-    region: "South America",
-    link: "https://example.com/amazon-mining"
+    title: 'Coral Reefs Are Dying',
+    topic: 'Ocean',
+    region: 'Global',
+    summary: 'Climate change is affecting coral reef health across the globe.',
+    link: 'https://example.com/coral-reefs',
   },
   {
-    title: "Coral Reefs Declining Faster Than Predicted",
-    summary: "Climate change and ocean acidification are accelerating coral bleaching events globally.",
-    topic: "Oceans",
-    region: "Global",
-    link: "https://example.com/coral-bleaching"
+    title: 'Amazon Rainforest Under Threat',
+    topic: 'Forest',
+    region: 'South America',
+    summary: 'Deforestation in the Amazon continues to be a major environmental issue.',
+    link: 'https://example.com/amazon',
   },
   {
-    title: "Grassroots Conservation Wins in East Africa",
-    summary: "Local communities in Kenya have successfully restored thousands of hectares of savannah.",
-    topic: "Conservation",
-    region: "Africa",
-    link: "https://example.com/kenya-conservation"
-  }
+    title: 'Melting Glaciers and Rising Seas',
+    topic: 'Climate',
+    region: 'Polar',
+    summary: 'Glaciers are retreating at unprecedented rates, contributing to sea-level rise.',
+    link: 'https://example.com/glaciers',
+  },
 ];
 
-export default function NatureNewsApp() {
-  const [search, setSearch] = useState("");
+function NatureNewsApp() {
+  const [selectedTopic, setSelectedTopic] = useState('All');
+  const [selectedRegion, setSelectedRegion] = useState('All');
 
-  const filteredArticles = mockArticles.filter(
-    (article) =>
-      article.title.toLowerCase().includes(search.toLowerCase()) ||
-      article.topic.toLowerCase().includes(search.toLowerCase()) ||
-      article.region.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredArticles = articles.filter((article) => {
+    const matchTopic = selectedTopic === 'All' || article.topic === selectedTopic;
+    const matchRegion = selectedRegion === 'All' || article.region === selectedRegion;
+    return matchTopic && matchRegion;
+  });
+
+  const uniqueTopics = ['All', ...new Set(articles.map((a) => a.topic))];
+  const uniqueRegions = ['All', ...new Set(articles.map((a) => a.region))];
 
   return (
-    <div className="app-main">
-      <input
-        placeholder="Search by topic, region or keyword..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        style={{
-          width: '100%',
-          padding: '12px 16px',
-          borderRadius: '8px',
-          border: '1px solid #ccc',
-          marginBottom: '2rem',
-          fontSize: '1rem'
-        }}
-      />
+    <div>
+      <div style={{ marginBottom: '1rem' }}>
+        <label style={{ marginRight: '1rem' }}>
+          Filter by Topic:
+          <select
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
+            style={{ marginLeft: '0.5rem' }}
+          >
+            {uniqueTopics.map((topic) => (
+              <option key={topic} value={topic}>
+                {topic}
+              </option>
+            ))}
+          </select>
+        </label>
 
-   {filteredArticles.map((article, index) => (
-  <div key={index} className="article-card">
-    <img
-      src="https://source.unsplash.com/800x400/?nature,forest"
-      alt="Nature"
-      className="article-image"
-    />
-    <h2 className="article-title">{article.title}</h2>
+        <label>
+          Filter by Region:
+          <select
+            value={selectedRegion}
+            onChange={(e) => setSelectedRegion(e.target.value)}
+            style={{ marginLeft: '0.5rem' }}
+          >
+            {uniqueRegions.map((region) => (
+              <option key={region} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
 
-    <div className="article-tags">
-      <span className="tag">{article.topic}</span>
-      <span className="tag">{article.region}</span>
+      <div className="app-main">
+        {filteredArticles.map((article, index) => (
+          <div key={index} className="news-card">
+            <img
+              src="https://source.unsplash.com/800x400/?nature,forest"
+              alt="Nature"
+              className="article-image"
+            />
+            <h3>{article.title}</h3>
+
+            <div className="article-tags">
+              <span className="tag">{article.topic}</span>
+              <span className="tag">{article.region}</span>
+            </div>
+
+            <p className="article-summary">{article.summary}</p>
+
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="article-link"
+            >
+              Read Full Article
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
+  );
+}
 
-    <p className="article-summary">{article.summary}</p>
-
-    <a
-      href={article.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="article-link"
-    >
-      Read Full Article
-    </a>
-  </div>
-))}
+export default NatureNewsApp;
