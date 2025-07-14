@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import NatureNewsApp from './NatureNewsApp';
-import logo from './earthrise-logo.svg'; // or .png
+import logo from './earthrise-logo.svg';
 
 function App() {
   return (
