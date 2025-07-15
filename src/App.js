@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css'; // ✅ Add this line
+import './App.css'; 
 import NatureNewsApp from './NatureNewsApp';
 
 function App() {
