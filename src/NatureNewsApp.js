@@ -80,7 +80,6 @@ function NatureNewsApp() {
         {filteredArticles.map((article, index) => (
           <div
             key={index}
-            className="article-card"
             style={{
               backgroundImage: `url(https://source.unsplash.com/800x600/?${article.topic},nature)`,
               backgroundSize: 'cover',
@@ -155,3 +154,5 @@ function NatureNewsApp() {
 }
 
 export default NatureNewsApp;
+  ))}
+</div>
