@@ -70,3 +70,17 @@ select {
 label {
   font-weight: bold;
 }
+
+.app-header {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.app-logo {
+  height: 80px;
+}
+
+.filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
