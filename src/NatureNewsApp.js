@@ -24,6 +24,12 @@ const articles = [
   },
 ];
 
+const topicImageMap = {
+  Ocean: 'https://source.unsplash.com/800x400/?coral,reef,ocean',
+  Forest: 'https://source.unsplash.com/800x400/?amazon,forest',
+  Climate: 'https://source.unsplash.com/800x400/?glacier,climate',
+};
+
 function NatureNewsApp() {
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
