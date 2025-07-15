@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import NatureNewsApp from './NatureNewsApp';
-import logo from './earthrise-logo.svg';
+<img src="/earthrise-logo.svg" className="app-logo" alt="EarthRise logo" />
 
 function App() {
   return (
