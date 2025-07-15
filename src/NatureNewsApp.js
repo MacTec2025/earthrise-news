@@ -39,16 +39,14 @@ function NatureNewsApp() {
 
   return (
     <div>
-      {/* Header */}
-      <div className="hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <img src="/earthrise-logo.svg" alt="EarthRise Logo" style={{ height: '80px' }} />
-        <h1 style={{ fontSize: '2.5rem', margin: '0.5rem 0' }}>EarthRise News</h1>
+      <header className="app-header">
+        <img src="/earthrise-logo.svg" alt="EarthRise Logo" className="app-logo" />
+        <h1>EarthRise News</h1>
         <p className="tagline">Curated stories from the natural world</p>
-      </div>
+      </header>
 
-      {/* Filters */}
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <label style={{ marginRight: '1rem' }}>
+      <div className="filters">
+        <label>
           Filter by Topic:
           <select value={selectedTopic} onChange={(e) => setSelectedTopic(e.target.value)}>
             {uniqueTopics.map((topic) => (
@@ -66,7 +64,6 @@ function NatureNewsApp() {
         </label>
       </div>
 
-      {/* Articles */}
       <div className="app-main">
         {filteredArticles.map((article, index) => (
           <div key={index} className="news-card">
@@ -81,12 +78,7 @@ function NatureNewsApp() {
               <span className="tag">{article.region}</span>
             </div>
             <p>{article.summary}</p>
-            <a
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="article-link"
-            >
+            <a href={article.link} target="_blank" rel="noopener noreferrer" className="article-link">
               Read Full Article
             </a>
           </div>
