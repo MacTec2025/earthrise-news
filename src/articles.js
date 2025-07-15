@@ -1,24 +1,27 @@
 const articles = [
   {
-    title: "Amazon Rainforest Faces New Threats from Illegal Mining",
-    summary: "Illegal gold mining in the Amazon continues to devastate ecosystems and harm indigenous communities.",
-    topic: "Forests",
+    title: "Juvenile Coral Reefs Show Signs of Recovery",
+    summary: "Scientists report encouraging signs of coral reef regeneration in parts of the Caribbean.",
+    image: "/Juvinille.jpg",
+    region: "Caribbean",
+    tags: ["coral", "regeneration", "marine life"],
+    link: "https://example.com/coral-recovery"
+  },
+  {
+    title: "Amazon Rainforest Sees Unseasonal Rainfall Patterns",
+    summary: "Unusual weather may be linked to broader climate shifts, researchers say.",
+    image: "/MAC04678-2.jpg",
     region: "South America",
-    link: "https://example.com/amazon-mining"
+    tags: ["amazon", "climate", "weather"],
+    link: "https://example.com/amazon-weather"
   },
   {
-    title: "Coral Reefs Declining Faster Than Predicted",
-    summary: "Climate change and ocean acidification are accelerating coral bleaching events globally.",
-    topic: "Oceans",
-    region: "Global",
-    link: "https://example.com/coral-bleaching"
-  },
-  {
-    title: "Grassroots Conservation Wins in East Africa",
-    summary: "Local communities in Kenya have successfully restored thousands of hectares of savannah.",
-    topic: "Conservation",
-    region: "Africa",
-    link: "https://example.com/kenya-conservation"
+    title: "Swiss Glaciers Melting at Accelerated Rates",
+    summary: "New satellite data confirms that melting has increased faster than previously estimated.",
+    image: "/MAC07676.jpg",
+    region: "Europe",
+    tags: ["glacier", "Switzerland", "climate change"],
+    link: "https://example.com/glacier-melt"
   }
 ];
 
