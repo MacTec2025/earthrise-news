@@ -33,8 +33,13 @@ const topicImageMap = {
 function NatureNewsApp() {
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
-
-  const filteredArticles = articles.filter((article) => {
+return (
+    <div>
+      <div className="hero">
+        <img src="/earthrise-logo.svg" alt="EarthRise Logo" className="hero-logo" />
+        <h1 className="hero-title">EarthRise News</h1>
+        <p className="hero-subtitle">Curated stories from the natural world</p>
+      </div>  const filteredArticles = articles.filter((article) => {
     const matchTopic = selectedTopic === 'All' || article.topic === selectedTopic;
     const matchRegion = selectedRegion === 'All' || article.region === selectedRegion;
     return matchTopic && matchRegion;
