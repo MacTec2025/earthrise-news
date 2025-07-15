@@ -1,7 +1,3 @@
-import React from 'react';
-import './App.css';
-import NatureNewsApp from './NatureNewsApp';
-
 function App() {
   return (
     <div className="App">
@@ -9,5 +5,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
