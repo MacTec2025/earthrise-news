@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import articles from './articles';  {
+const articles = [
+  {
     title: 'Coral Reefs Are Dying',
     topic: 'Ocean',
     region: 'Global',
@@ -27,7 +28,7 @@ function NatureNewsApp() {
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
 
-const filteredArticles = articles.filter(...
+  const filteredArticles = articles.filter((article) => {
     const matchTopic = selectedTopic === 'All' || article.topic === selectedTopic;
     const matchRegion = selectedRegion === 'All' || article.region === selectedRegion;
     return matchTopic && matchRegion;
