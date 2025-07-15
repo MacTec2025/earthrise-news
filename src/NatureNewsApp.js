@@ -85,11 +85,11 @@ return (
       <div className="app-main">
         {filteredArticles.map((article, index) => (
           <div key={index} className="news-card">
-            <img
-              src="https://source.unsplash.com/800x400/?nature,forest"
-              alt="Nature"
-              className="article-image"
-            />
+           <img
+  src={topicImageMap[article.topic] || 'https://source.unsplash.com/800x400/?nature'}
+  alt={article.title}
+  className="article-image"
+/>
             <h3>{article.title}</h3>
             <div className="article-tags">
               <span className="tag">{article.topic}</span>
