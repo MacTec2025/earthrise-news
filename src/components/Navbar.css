@@ -3,8 +3,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #f8db00; 
+  background-color: #f8db00; /* EarthRise yellow */
   color: white;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar-logo-img {
@@ -15,12 +19,12 @@
   color: white;
   text-decoration: none;
   margin-left: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
 }
 
 .navbar-links a:hover {
   text-decoration: underline;
-}
-
-.navbar-toggle {
-  display: none;
+  opacity: 0.85;
 }

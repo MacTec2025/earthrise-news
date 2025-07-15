@@ -1,26 +1,26 @@
-// src/components/Navbar.js
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a href="/">EarthRise</a>
+        <a href="/">
+          <img
+            src="/earthrise-logo.svg"
+            alt="EarthRise Logo"
+            className="navbar-logo-img"
+          />
+        </a>
       </div>
-      <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
+      <div className="navbar-links">
         <a href="/">Home</a>
-        <a href="/articles">Articles</a>
-        <a href="/understand">Understand</a>
-        <a href="/act">Act</a>
-        <a href="/community">Community</a>
-        <a href="/events">Events</a>
-        <a href="/about">About</a>
-      </div>
-      <div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
-        =
+        <a href="#articles">Articles</a>
+        <a href="#research">Research</a>
+        <a href="#community">Community</a>
+        <a href="#projects">Projects</a>
+        <a href="#events">Events</a>
+        <a href="#about">About</a>
       </div>
     </nav>
   );
