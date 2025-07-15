@@ -82,33 +82,78 @@ return (
         </label>
       </div>
 
-      <div className="app-main">
-        {filteredArticles.map((article, index) => (
-          <div key={index} className="news-card">
-           <img
-  src={topicImageMap[article.topic] || 'https://source.unsplash.com/800x400/?nature'}
-  alt={article.title}
-  className="article-image"
-/>
-            <h3>{article.title}</h3>
-            <div className="article-tags">
-              <span className="tag">{article.topic}</span>
-              <span className="tag">{article.region}</span>
-            </div>
-            <p className="article-summary">{article.summary}</p>
-            <a
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="article-link"
-            >
-              Read Full Article
-            </a>
-          </div>
-        ))}
+     <div className="app-main">
+  {filteredArticles.map((article, index) => (
+    <div
+      key={index}
+      className="article-card"
+      style={{
+        backgroundImage: `url(https://source.unsplash.com/800x600/?${article.topic},nature)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: '16px',
+        color: '#fff',
+        padding: '1.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        height: '300px',
+        position: 'relative',
+        boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
+        marginBottom: '2rem'
+      }}
+    >
+      <div
+        style={{
+          background: 'rgba(0,0,0,0.5)',
+          borderRadius: '12px',
+          padding: '1rem',
+          backdropFilter: 'blur(5px)'
+        }}
+      >
+        <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{article.title}</h3>
+        <div style={{ marginBottom: '0.5rem' }}>
+          <span
+            style={{
+              marginRight: '0.5rem',
+              backgroundColor: '#ffc107',
+              color: '#000',
+              borderRadius: '8px',
+              padding: '0.2rem 0.6rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold'
+            }}
+          >
+            {article.topic}
+          </span>
+          <span
+            style={{
+              backgroundColor: '#17a2b8',
+              color: '#fff',
+              borderRadius: '8px',
+              padding: '0.2rem 0.6rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold'
+            }}
+          >
+            {article.region}
+          </span>
+        </div>
+        <p style={{ fontSize: '0.9rem' }}>{article.summary}</p>
+        <a
+          href={article.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: '#fff',
+            textDecoration: 'underline',
+            marginTop: '0.5rem',
+            display: 'inline-block'
+          }}
+        >
+          Read Full Article
+        </a>
       </div>
     </div>
-  );
-}
-
-export default NatureNewsApp;
+  ))}
+</div>
