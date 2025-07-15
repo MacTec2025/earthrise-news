@@ -38,19 +38,19 @@ function NatureNewsApp() {
   const uniqueRegions = ['All', ...new Set(articles.map((a) => a.region))];
 
   return (
-    <div style={{ padding: '2rem', backgroundColor: '#f2f8f5', minHeight: '100vh' }}>
+    <div>
       {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+      <div className="hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <img src="/earthrise-logo.svg" alt="EarthRise Logo" style={{ height: '80px' }} />
-        <h1 style={{ fontSize: '2.8rem', color: '#004d40', margin: '0.5rem 0' }}>EarthRise News</h1>
-        <p style={{ fontSize: '1.1rem', color: '#555' }}>Curated stories from the natural world</p>
+        <h1 style={{ fontSize: '2.5rem', margin: '0.5rem 0' }}>EarthRise News</h1>
+        <p className="tagline">Curated stories from the natural world</p>
       </div>
 
       {/* Filters */}
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <label style={{ marginRight: '1rem' }}>
           Filter by Topic:
-          <select value={selectedTopic} onChange={(e) => setSelectedTopic(e.target.value)} style={{ marginLeft: '0.5rem' }}>
+          <select value={selectedTopic} onChange={(e) => setSelectedTopic(e.target.value)}>
             {uniqueTopics.map((topic) => (
               <option key={topic} value={topic}>{topic}</option>
             ))}
@@ -58,7 +58,7 @@ function NatureNewsApp() {
         </label>
         <label>
           Filter by Region:
-          <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)} style={{ marginLeft: '0.5rem' }}>
+          <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)}>
             {uniqueRegions.map((region) => (
               <option key={region} value={region}>{region}</option>
             ))}
@@ -67,63 +67,28 @@ function NatureNewsApp() {
       </div>
 
       {/* Articles */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '2rem'
-      }}>
+      <div className="app-main">
         {filteredArticles.map((article, index) => (
-          <div
-            key={index}
-            style={{
-              backgroundImage: `url(https://source.unsplash.com/800x600/?${article.topic},nature)`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              borderRadius: '16px',
-              color: '#fff',
-              padding: '1.5rem',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              height: '300px',
-              position: 'relative',
-              boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
-            }}
-          >
-            <div style={{
-              background: 'rgba(0,0,0,0.5)',
-              borderRadius: '12px',
-              padding: '1rem',
-              backdropFilter: 'blur(5px)'
-            }}>
-              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{article.title}</h3>
-              <div style={{ marginBottom: '0.5rem' }}>
-                <span style={{
-                  marginRight: '0.5rem',
-                  backgroundColor: '#ffc107',
-                  color: '#000',
-                  borderRadius: '8px',
-                  padding: '0.2rem 0.6rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold'
-                }}>{article.topic}</span>
-                <span style={{
-                  backgroundColor: '#17a2b8',
-                  color: '#fff',
-                  borderRadius: '8px',
-                  padding: '0.2rem 0.6rem',
-                  fontSize: '0.8rem',
-                  fontWeight: 'bold'
-                }}>{article.region}</span>
-              </div>
-              <p style={{ fontSize: '0.9rem' }}>{article.summary}</p>
-              <a href={article.link} target="_blank" rel="noopener noreferrer" style={{
-                color: '#fff',
-                textDecoration: 'underline',
-                marginTop: '0.5rem',
-                display: 'inline-block'
-              }}>Read Full Article</a>
+          <div key={index} className="news-card">
+            <img
+              src={`https://source.unsplash.com/800x600/?${article.topic},nature`}
+              alt={article.title}
+              className="article-image"
+            />
+            <h3>{article.title}</h3>
+            <div className="article-tags">
+              <span className="tag">{article.topic}</span>
+              <span className="tag">{article.region}</span>
             </div>
+            <p>{article.summary}</p>
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="article-link"
+            >
+              Read Full Article
+            </a>
           </div>
         ))}
       </div>
