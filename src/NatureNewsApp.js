@@ -23,7 +23,6 @@ const articles = [
     link: 'https://example.com/glaciers',
   },
 ];
-
 function NatureNewsApp() {
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
