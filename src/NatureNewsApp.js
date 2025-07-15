@@ -24,22 +24,11 @@ const articles = [
   },
 ];
 
-const topicImageMap = {
-  Ocean: 'https://source.unsplash.com/800x400/?coral,reef,ocean',
-  Forest: 'https://source.unsplash.com/800x400/?amazon,forest',
-  Climate: 'https://source.unsplash.com/800x400/?glacier,climate',
-};
-
 function NatureNewsApp() {
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
-return (
-    <div>
-      <div className="hero">
-        <img src="/earthrise-logo.svg" alt="EarthRise Logo" className="hero-logo" />
-        <h1 className="hero-title">EarthRise News</h1>
-        <p className="hero-subtitle">Curated stories from the natural world</p>
-      </div>  const filteredArticles = articles.filter((article) => {
+
+  const filteredArticles = articles.filter((article) => {
     const matchTopic = selectedTopic === 'All' || article.topic === selectedTopic;
     const matchRegion = selectedRegion === 'All' || article.region === selectedRegion;
     return matchTopic && matchRegion;
@@ -49,8 +38,16 @@ return (
   const uniqueRegions = ['All', ...new Set(articles.map((a) => a.region))];
 
   return (
-    <div>
-      <div style={{ marginBottom: '1rem' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#f2f8f5' }}>
+      {/* Header */}
+      <div className="hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <img src="/earthrise-logo.svg" alt="EarthRise Logo" className="hero-logo" style={{ height: '80px' }} />
+        <h1 className="hero-title" style={{ fontSize: '2.5rem', margin: '0.5rem 0', color: '#004d40' }}>EarthRise News</h1>
+        <p className="hero-subtitle" style={{ fontSize: '1.2rem', color: '#666' }}>Curated stories from the natural world</p>
+      </div>
+
+      {/* Filters */}
+      <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
         <label style={{ marginRight: '1rem' }}>
           Filter by Topic:
           <select
@@ -59,9 +56,7 @@ return (
             style={{ marginLeft: '0.5rem' }}
           >
             {uniqueTopics.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
-              </option>
+              <option key={topic} value={topic}>{topic}</option>
             ))}
           </select>
         </label>
@@ -74,86 +69,89 @@ return (
             style={{ marginLeft: '0.5rem' }}
           >
             {uniqueRegions.map((region) => (
-              <option key={region} value={region}>
-                {region}
-              </option>
+              <option key={region} value={region}>{region}</option>
             ))}
           </select>
         </label>
       </div>
 
-     <div className="app-main">
-  {filteredArticles.map((article, index) => (
-    <div
-      key={index}
-      className="article-card"
-      style={{
-        backgroundImage: `url(https://source.unsplash.com/800x600/?${article.topic},nature)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        borderRadius: '16px',
-        color: '#fff',
-        padding: '1.5rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        height: '300px',
-        position: 'relative',
-        boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
-        marginBottom: '2rem'
-      }}
-    >
-      <div
-        style={{
-          background: 'rgba(0,0,0,0.5)',
-          borderRadius: '12px',
-          padding: '1rem',
-          backdropFilter: 'blur(5px)'
-        }}
-      >
-        <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{article.title}</h3>
-        <div style={{ marginBottom: '0.5rem' }}>
-          <span
+      {/* Article Cards */}
+      <div className="app-main" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        {filteredArticles.map((article, index) => (
+          <div
+            key={index}
+            className="article-card"
             style={{
-              marginRight: '0.5rem',
-              backgroundColor: '#ffc107',
-              color: '#000',
-              borderRadius: '8px',
-              padding: '0.2rem 0.6rem',
-              fontSize: '0.8rem',
-              fontWeight: 'bold'
-            }}
-          >
-            {article.topic}
-          </span>
-          <span
-            style={{
-              backgroundColor: '#17a2b8',
+              backgroundImage: `url(https://source.unsplash.com/800x600/?${article.topic},nature)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '16px',
               color: '#fff',
-              borderRadius: '8px',
-              padding: '0.2rem 0.6rem',
-              fontSize: '0.8rem',
-              fontWeight: 'bold'
+              padding: '1.5rem',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              height: '300px',
+              position: 'relative',
+              boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
             }}
           >
-            {article.region}
-          </span>
-        </div>
-        <p style={{ fontSize: '0.9rem' }}>{article.summary}</p>
-        <a
-          href={article.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: '#fff',
-            textDecoration: 'underline',
-            marginTop: '0.5rem',
-            display: 'inline-block'
-          }}
-        >
-          Read Full Article
-        </a>
+            <div
+              style={{
+                background: 'rgba(0,0,0,0.5)',
+                borderRadius: '12px',
+                padding: '1rem',
+                backdropFilter: 'blur(5px)'
+              }}
+            >
+              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{article.title}</h3>
+              <div style={{ marginBottom: '0.5rem' }}>
+                <span
+                  style={{
+                    marginRight: '0.5rem',
+                    backgroundColor: '#ffc107',
+                    color: '#000',
+                    borderRadius: '8px',
+                    padding: '0.2rem 0.6rem',
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {article.topic}
+                </span>
+                <span
+                  style={{
+                    backgroundColor: '#17a2b8',
+                    color: '#fff',
+                    borderRadius: '8px',
+                    padding: '0.2rem 0.6rem',
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {article.region}
+                </span>
+              </div>
+              <p style={{ fontSize: '0.9rem' }}>{article.summary}</p>
+              <a
+                href={article.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#fff',
+                  textDecoration: 'underline',
+                  marginTop: '0.5rem',
+                  display: 'inline-block'
+                }}
+              >
+                Read Full Article
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-  ))}
-</div>
+  );
+}
+
+export default NatureNewsApp;
