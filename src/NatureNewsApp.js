@@ -78,7 +78,12 @@ function NatureNewsApp() {
               <span className="tag">{article.region}</span>
             </div>
             <p>{article.summary}</p>
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="article-link">
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="article-link"
+            >
               Read Full Article
             </a>
           </div>
