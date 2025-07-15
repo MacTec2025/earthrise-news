@@ -16,10 +16,11 @@ function Navbar() {
         <a href="/understand">Understand</a>
         <a href="/act">Act</a>
         <a href="/community">Community</a>
+        <a href="/events">Events</a>
         <a href="/about">About</a>
       </div>
       <div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
-        ☰
+        =
       </div>
     </nav>
   );
