@@ -23,6 +23,7 @@ const articles = [
     link: 'https://example.com/glaciers',
   },
 ];
+
 function NatureNewsApp() {
   const [selectedTopic, setSelectedTopic] = useState('All');
   const [selectedRegion, setSelectedRegion] = useState('All');
@@ -79,14 +80,11 @@ function NatureNewsApp() {
               className="article-image"
             />
             <h3>{article.title}</h3>
-
             <div className="article-tags">
               <span className="tag">{article.topic}</span>
               <span className="tag">{article.region}</span>
             </div>
-
             <p className="article-summary">{article.summary}</p>
-
             <a
               href={article.link}
               target="_blank"
