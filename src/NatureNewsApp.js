@@ -38,36 +38,27 @@ function NatureNewsApp() {
   const uniqueRegions = ['All', ...new Set(articles.map((a) => a.region))];
 
   return (
-    <div style={{ padding: '2rem', backgroundColor: '#f2f8f5' }}>
+    <div style={{ padding: '2rem', backgroundColor: '#f2f8f5', minHeight: '100vh' }}>
       {/* Header */}
-      <div className="hero" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <img src="/earthrise-logo.svg" alt="EarthRise Logo" className="hero-logo" style={{ height: '80px' }} />
-        <h1 className="hero-title" style={{ fontSize: '2.5rem', margin: '0.5rem 0', color: '#004d40' }}>EarthRise News</h1>
-        <p className="hero-subtitle" style={{ fontSize: '1.2rem', color: '#666' }}>Curated stories from the natural world</p>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <img src="/earthrise-logo.svg" alt="EarthRise Logo" style={{ height: '80px' }} />
+        <h1 style={{ fontSize: '2.8rem', color: '#004d40', margin: '0.5rem 0' }}>EarthRise News</h1>
+        <p style={{ fontSize: '1.1rem', color: '#555' }}>Curated stories from the natural world</p>
       </div>
 
       {/* Filters */}
-      <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <label style={{ marginRight: '1rem' }}>
           Filter by Topic:
-          <select
-            value={selectedTopic}
-            onChange={(e) => setSelectedTopic(e.target.value)}
-            style={{ marginLeft: '0.5rem' }}
-          >
+          <select value={selectedTopic} onChange={(e) => setSelectedTopic(e.target.value)} style={{ marginLeft: '0.5rem' }}>
             {uniqueTopics.map((topic) => (
               <option key={topic} value={topic}>{topic}</option>
             ))}
           </select>
         </label>
-
         <label>
           Filter by Region:
-          <select
-            value={selectedRegion}
-            onChange={(e) => setSelectedRegion(e.target.value)}
-            style={{ marginLeft: '0.5rem' }}
-          >
+          <select value={selectedRegion} onChange={(e) => setSelectedRegion(e.target.value)} style={{ marginLeft: '0.5rem' }}>
             {uniqueRegions.map((region) => (
               <option key={region} value={region}>{region}</option>
             ))}
@@ -75,8 +66,12 @@ function NatureNewsApp() {
         </label>
       </div>
 
-      {/* Article Cards */}
-      <div className="app-main" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+      {/* Articles */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '2rem'
+      }}>
         {filteredArticles.map((article, index) => (
           <div
             key={index}
@@ -95,56 +90,39 @@ function NatureNewsApp() {
               boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
             }}
           >
-            <div
-              style={{
-                background: 'rgba(0,0,0,0.5)',
-                borderRadius: '12px',
-                padding: '1rem',
-                backdropFilter: 'blur(5px)'
-              }}
-            >
+            <div style={{
+              background: 'rgba(0,0,0,0.5)',
+              borderRadius: '12px',
+              padding: '1rem',
+              backdropFilter: 'blur(5px)'
+            }}>
               <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{article.title}</h3>
               <div style={{ marginBottom: '0.5rem' }}>
-                <span
-                  style={{
-                    marginRight: '0.5rem',
-                    backgroundColor: '#ffc107',
-                    color: '#000',
-                    borderRadius: '8px',
-                    padding: '0.2rem 0.6rem',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold'
-                  }}
-                >
-                  {article.topic}
-                </span>
-                <span
-                  style={{
-                    backgroundColor: '#17a2b8',
-                    color: '#fff',
-                    borderRadius: '8px',
-                    padding: '0.2rem 0.6rem',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold'
-                  }}
-                >
-                  {article.region}
-                </span>
+                <span style={{
+                  marginRight: '0.5rem',
+                  backgroundColor: '#ffc107',
+                  color: '#000',
+                  borderRadius: '8px',
+                  padding: '0.2rem 0.6rem',
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold'
+                }}>{article.topic}</span>
+                <span style={{
+                  backgroundColor: '#17a2b8',
+                  color: '#fff',
+                  borderRadius: '8px',
+                  padding: '0.2rem 0.6rem',
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold'
+                }}>{article.region}</span>
               </div>
               <p style={{ fontSize: '0.9rem' }}>{article.summary}</p>
-              <a
-                href={article.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: '#fff',
-                  textDecoration: 'underline',
-                  marginTop: '0.5rem',
-                  display: 'inline-block'
-                }}
-              >
-                Read Full Article
-              </a>
+              <a href={article.link} target="_blank" rel="noopener noreferrer" style={{
+                color: '#fff',
+                textDecoration: 'underline',
+                marginTop: '0.5rem',
+                display: 'inline-block'
+              }}>Read Full Article</a>
             </div>
           </div>
         ))}
@@ -154,5 +132,3 @@ function NatureNewsApp() {
 }
 
 export default NatureNewsApp;
-  ))}
-</div>
