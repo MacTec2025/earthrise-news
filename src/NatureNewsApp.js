@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import articles from './articles';
-  {
+import articles from './articles';  {
     title: 'Coral Reefs Are Dying',
     topic: 'Ocean',
     region: 'Global',
