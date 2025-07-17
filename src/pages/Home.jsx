@@ -1,7 +1,12 @@
 import React from 'react';
 
-function Home() {
-  return <h2 style={{ padding: '2rem' }}>🌍 Welcome to EarthRise</h2>;
-}
+const Home = () => {
+  return (
+    <div className="app-main">
+      <h1>Welcome to EarthRise 🌍</h1>
+      <p>This will be the hub for nature news, actions, and stories.</p>
+    </div>
+  );
+};
 
 export default Home;
