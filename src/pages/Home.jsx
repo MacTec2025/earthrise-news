@@ -1,14 +1,12 @@
 import React from 'react';
 
-const Home = () => {
+function Home() {
   return (
-    <div className="app-main">
-      <h1 style={{ color: '#fdd835' }}>🌍 Welcome to EarthRise</h1>
-      <p style={{ color: '#ffffff' }}>
-        This is your curated hub for nature news, solutions, and community action.
-      </p>
+    <div style={{ padding: '2rem', color: 'white' }}>
+      <h1>Welcome to EarthRise 🌍</h1>
+      <p>If you see this, the homepage is working!</p>
     </div>
   );
-};
+}
 
 export default Home;
