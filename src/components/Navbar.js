@@ -1,26 +1,21 @@
 import React from 'react';
-import './Navbar.css';
+import { Link } from 'react-router-dom';
+import logo from '../assets/earthrise-logo.svg'; // Or wherever your logo is
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <a href="/">
-          <img
-            src="/earthrise-logo.svg"
-            alt="EarthRise Logo"
-            className="navbar-logo-img"
-          />
-        </a>
-      </div>
+      <Link to="/">
+        <img src={logo} alt="EarthRise Logo" className="navbar-logo-img" />
+      </Link>
       <div className="navbar-links">
-        <a href="/">Home</a>
-        <a href="#articles">Articles</a>
-        <a href="#research">Research</a>
-        <a href="#community">Community</a>
-        <a href="#projects">Projects</a>
-        <a href="#events">Events</a>
-        <a href="#about">About</a>
+        <Link to="/topics">Topics</Link>
+        <Link to="/regions">Regions</Link>
+        <Link to="/deep-dives">Deep Dives</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/how-to-act">How to Act</Link>
+        <Link to="/events">Events</Link>
+        <Link to="/community">Community</Link>
       </div>
     </nav>
   );
