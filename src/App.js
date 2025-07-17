@@ -14,19 +14,14 @@ import Community from './pages/Community';
 function App() {
   return (
     <Router>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/topics" element={<Topics />} />
-        <Route path="/regions" element={<Regions />} />
-        <Route path="/deep-dives" element={<DeepDives />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/how-to-act" element={<Actions />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/community" element={<Community />} />
+        {/* other routes... */}
       </Routes>
     </Router>
   );
 }
+
 
 export default App;
