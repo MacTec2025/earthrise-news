@@ -4,7 +4,7 @@
   align-items: center;
   padding: 1rem 2rem;
   background-color: #f8db00; /* EarthRise yellow */
-  color: white;
+  color: rgb(255, 255, 255);
   height: 64px;
   position: sticky;
   top: 0;
