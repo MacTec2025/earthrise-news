@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import articles from './articles';
+import articles from '../articles';
 
 function NatureNewsApp() {
   const [selectedRegion, setSelectedRegion] = useState('All');
