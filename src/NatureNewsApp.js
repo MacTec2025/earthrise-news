@@ -17,7 +17,7 @@ function NatureNewsApp() {
   return (
     <div className="App">
       <header className="app-header">
-       <img src="/earthrise-logo.png" alt="EarthRise News Logo" className="app-logo" />
+        <img src="/earthrise-logo.png" alt="EarthRise News Logo" className="app-logo" />
         <h1>EarthRise News</h1>
         <p>Curated nature and conservation headlines from around the globe.</p>
       </header>

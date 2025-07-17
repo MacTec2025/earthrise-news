@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-
 import Home from './pages/Home';
 import Topics from './pages/Topics';
 import Regions from './pages/Regions';
@@ -14,14 +13,19 @@ import Community from './pages/Community';
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* other routes... */}
+        <Route path="/topics" element={<Topics />} />
+        <Route path="/regions" element={<Regions />} />
+        <Route path="/deepdives" element={<DeepDives />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/actions" element={<Actions />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/community" element={<Community />} />
       </Routes>
     </Router>
   );
 }
-
 
 export default App;
