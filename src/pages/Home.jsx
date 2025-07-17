@@ -1,12 +1,14 @@
 import React from 'react';
 
-function Home() {
+const Home = () => {
   return (
-    <div style={{ padding: '2rem', color: 'white' }}>
-      <h1>Welcome to EarthRise 🌍</h1>
-      <p>If you see this, the homepage is working!</p>
+    <div style={{ backgroundColor: '#00332e', minHeight: '100vh', padding: '2rem' }}>
+      <h1 style={{ color: '#fdd835' }}>🌍 Welcome to EarthRise</h1>
+      <p style={{ color: '#ffffff' }}>
+        This is your curated hub for nature news, solutions, and community action.
+      </p>
     </div>
   );
-}
+};
 
 export default Home;
